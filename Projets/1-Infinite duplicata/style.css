@@ -1,0 +1,71 @@
+/* ─── 1. RESET MINIMAL + BODY = 100 % HAUTEUR ─── */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  /* Corps = 100 % de la fenêtre */
+  overflow: hidden;
+  /* Pas de scroll global */
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fafafa;
+}
+
+/* ─── 2. CONTENEUR PRINCIPAL EN FLEX (2 COLONNES) ─── */
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* ─── 3. COLONNE GAUCHE (texte) ─── */
+#left-container {
+  flex: 1;
+  /* Prend 50 % de la largeur par défaut */
+  padding: 40px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  overflow-y: auto;
+  /* Si le texte dépasse, seule cette colonne défile */
+}
+
+#left-container h1 {
+  margin: 0 0 20px;
+  font-size: 2rem;
+  color: #333333;
+}
+
+#left-container p {
+  margin: 0 0 15px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555555;
+  max-width: 600px;
+}
+
+/* ─── 4. COLONNE DROITE (canvas) ─── */
+#right-container {
+  flex: 1;
+  /* Prend les 50 % restants */
+  position: relative;
+  /* Pour que #preview-container remplisse cet espace */
+  background-color: #ffffff;
+  overflow: hidden;
+  /* Le canvas ne débordera pas */
+}
+
+/* 5. Quand P5 crée le <canvas> dans #preview-container, il doit remplir tout l’espace : */
+#preview-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#preview-container canvas {
+  display: block;
+  /* Supprime l’espace inline */
+  width: 100% !important;
+  /* Forcer le canvas à 100 % de la largeur */
+  height: 100% !important;
+  /* et 100 % de la hauteur */
+}
