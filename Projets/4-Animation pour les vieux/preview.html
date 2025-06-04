@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Preview – Projet DVD Bouncing</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        #preview-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        #preview-container canvas {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preview-container"></div>
+    <script>
+        let containerElem;
+        let boxSize = 100;
+        let positionX = 33;
+        let vitesseX = 2;
+        let positionY = 234;
+        let vitesseY = 5;
+        let r = Math.random() * 120;
+        let v = Math.random() * 120;
+        let b = Math.random() * 120;
+        let dvdLogo;
+
+        function preload() {
+            dvdLogo = loadImage('DVD-logo.png');
+        }
+
+        function setup() {
+            containerElem = document.getElementById('preview-container');
+            const w = containerElem.offsetWidth;
+            const h = containerElem.offsetHeight;
+            const cnv = createCanvas(w, h);
+            cnv.parent('preview-container');
+            dvdLogo.resize(800, 480);
+        }
+
+        function draw() {
+            const w = containerElem.offsetWidth;
+            const h = containerElem.offsetHeight;
+            if (w !== width || h !== height) {
+                resizeCanvas(w, h);
+            }
+
+            background(r, v, b);
+            image(dvdLogo, positionX, positionY, boxSize, boxSize);
+            positionX += vitesseX;
+            positionY += vitesseY;
+
+            if (positionX + boxSize > width || positionX < 0) {
+                vitesseX *= -1;
+                changeColor();
+            }
+            if (positionY + boxSize > height || positionY < 0) {
+                vitesseY *= -1;
+                changeColor();
+            }
+        }
+
+        function windowResized() {
+            if (containerElem) {
+                const w = containerElem.offsetWidth;
+                const h = containerElem.offsetHeight;
+                resizeCanvas(w, h);
+            }
+        }
+
+        function changeColor() {
+            r = Math.random() * 120;
+            v = Math.random() * 120;
+            b = Math.random() * 120;
+        }
+    </script>
+</body>
+
+</html>

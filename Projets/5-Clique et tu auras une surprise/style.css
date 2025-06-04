@@ -1,0 +1,99 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Work Sans", sans-serif;
+  ;
+  background-color: #ffffff;
+}
+
+
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+
+#left-container {
+  flex: 1;
+  padding: 40px;
+  box-sizing: border-box;
+  background-color: #c5c5c5;
+  overflow-y: auto;
+
+
+}
+
+#left-container h1 {
+  margin: 30% 0 5%;
+  font-size: 2.5rem;
+  color: #181818;
+}
+
+#left-container p {
+  margin: 0 0 15px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #000000;
+  max-width: 600px;
+}
+
+
+#right-container {
+  flex: 1;
+
+  position: relative;
+
+  background-color: #ffffff;
+  overflow: hidden;
+
+}
+
+
+#preview-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#preview-container canvas {
+  display: block;
+
+  width: 100% !important;
+
+  height: 100% !important;
+
+}
+
+/* Flèches */
+.nav-arrow {
+  position: fixed;
+  bottom: 1%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: #333;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  margin: 0 2%;
+}
+
+.nav-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* Flèche gauche */
+.nav-arrow.left {
+  left: 1rem;
+}
+
+/* Flèche droite */
+.nav-arrow.right {
+  right: 1rem;
+}

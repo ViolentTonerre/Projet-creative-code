@@ -3,13 +3,9 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Preview – Projet 1</title>
-
-
+    <title>Preview – Projet 2</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
-
-
     <style>
         html,
         body {
@@ -18,9 +14,7 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-
             background-color: #fff;
-
         }
 
         #preview-container {
@@ -29,10 +23,8 @@
             position: relative;
         }
 
-
         #preview-container canvas {
             display: block;
-
             width: 100% !important;
             height: 100% !important;
         }
@@ -40,14 +32,48 @@
 </head>
 
 <body>
-
     <div id="preview-container"></div>
-
-    <script src="sketch.js"></script>
     <script>
-        setTimeout(() => {
-            window.location.reload();
-        }, 10000);
+        let containerElem;
+        let slider;
+        let squareSize = 150;
+
+        function setup() {
+            containerElem = document.getElementById('preview-container');
+            const w = containerElem.offsetWidth;
+            const h = containerElem.offsetHeight;
+            const cnv = createCanvas(w, h);
+            cnv.parent('preview-container');
+            background(255);
+            slider = createSlider(50, 300, squareSize, 1);
+            slider.position(80, h - 40);
+            slider.size(130);
+            noLoop();
+        }
+
+        function draw() {
+            background(255);
+            squareSize = slider.value();
+            const x = (width - squareSize) / 2;
+            const y = (height - squareSize) / 2 - 20;
+            fill('#85FF00');
+            stroke(150);
+            rect(x, y, squareSize, squareSize);
+        }
+
+        function windowResized() {
+            if (containerElem) {
+                const w = containerElem.offsetWidth;
+                const h = containerElem.offsetHeight;
+                resizeCanvas(w, h);
+                slider.position(10, h - 40);
+                redraw();
+            }
+        }
+
+        function mouseReleased() {
+            redraw();
+        }
     </script>
 </body>
 
