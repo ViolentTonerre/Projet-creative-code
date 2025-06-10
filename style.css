@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Work Sans", sans-serif;
-    background-color: #f8f8f8;
+    background-color: #111111;
     overflow-x: hidden;
 }
 
@@ -19,6 +19,7 @@ body.gallery {
     text-align: center;
     padding-top: 6vh;
     padding-bottom: 3vh;
+    background-color: #111111;
 }
 
 /* Titre principal */
@@ -27,12 +28,13 @@ body.gallery h1 {
     line-height: 1.2;
     margin: 10% 0 2% 0;
     padding: 0;
+    color: #f0f0f0;
 }
 
 /* Sous-titre */
 body.gallery .subtitle {
     font-size: 2rem;
-    color: #666;
+    color: #f0f0f0;
     margin-top: 0.5rem;
     margin-bottom: 0;
 }
