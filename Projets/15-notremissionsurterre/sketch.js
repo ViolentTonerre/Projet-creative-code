@@ -35,7 +35,7 @@ function draw() {
     }
     let sx = (star.x / star.z) * width;
     let sy = (star.y / star.z) * height;
-    let r = map(star.z, 0, width, 4, 0);
+    let r = map(star.z, 0, width, 12, 0);
     fill(36, 68, 92);
     noStroke();
     ellipse(sx, sy, r, r);
